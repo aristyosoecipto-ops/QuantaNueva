@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantaNueva | Advanced Thermal Control Nanomaterials</title>
+    <style>
+        :root {
+            --navy: #0B1F3F; 
+            --cyan: #13C6D3; 
+            --light-cyan: #E0F2FE;
+            --gray: #F8FAFC;
+            --text: #334155;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--white);
+            border-bottom: 1px solid #E2E8F0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 45px; 
+            width: auto;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            margin-right: auto;
+            margin-left: 3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--cyan); }
+
+        .btn-primary {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover { background-color: var(--cyan); }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--navy);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-cyan);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--white) 100%);
+        }
+
+        .hero-logo {
+            max-width: 250px;
+            margin: 0 auto 2rem auto;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* About Us Section */
+        .about {
+            padding: 5rem 5%;
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 850px;
+            margin: 0 auto 1.5rem auto;
+            color: #CBD5E1;
+        }
+
+        /* Features/Products Section */
+        .features {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4rem auto;
+            font-size: 1.1rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: left;
+            border-top: 4px solid var(--cyan);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--light-cyan);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Technology Details */
+        .tech {
+            padding: 4rem 5%;
+            background-color: var(--gray);
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tech-container h3 {
+            color: var(--navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .tech-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .tech-list li::before {
+            content: "✓";
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            text-align: center;
+            background-color: var(--white);
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0 auto;
+            background: var(--gray);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 3px var(--light-cyan);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: #94A3B8;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid #1E293B;
+        }
+
+        footer p { margin-bottom: 1rem; }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links { 
+                margin: 0;
+                gap: 1.5rem;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-logo { max-width: 180px; }
+            .btn-primary.header-btn {
+                display: none;
+            }
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <a href="#"><img src="c26cacd7-30be-4f6e-8a4e-3eb1217b2311-1.jpg" alt="QuantaNueva Logo" class="logo-img"></a>
+        </div>
+        <div class="nav-links">
+            <a href="#about">Technology</a>
+            <a href="#performance">Performance</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn-primary header-btn">Partner With Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="c26cacd7-30be-4f6e-8a4e-3eb1217b2311-1.jpg" alt="QuantaNueva" class="hero-logo">
+        <h1>Advanced Thermodynamic Nanomaterials.</h1>
+        <p>QuantaNueva engineers spectrally-selective nanocomposites that deliver extreme near-infrared attenuation and comprehensive UV shielding. Optimize building energy loads while maintaining flawless optical clarity.</p>
+        <div class="hero-buttons">
+            <a href="#performance" class="btn-primary">View Specifications</a>
+            <a href="#contact" class="btn-outline">Contact Engineering</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>Engineering the Molecular Barrier</h2>
+        <p>At QuantaNueva, we are redefining sustainable infrastructure through advanced materials science. We synthesize high-performance smart coatings engineered to modulate solar irradiance at the atomic level.</p>
+        <p>First-generation solar films suffer from rapid oxidation and structural breakdown when deployed in highly demanding environments. QuantaNueva isolates and solves this flaw by engineering a hyper-stabilized dielectric matrix. This sub-nanometer protective lattice permanently seals our active near-infrared (NIR) attenuating particles against moisture and oxygen permeation. The result is a spectrally-selective barrier that unlocks unprecedented environmental stability, maximum visible light transmittance, and extreme thermal rejection for global commercial applications.</p>
+    </section>
+
+    <!-- Performance/Solutions Section -->
+    <section id="performance" class="features">
+        <h2 class="section-title">Optical & Thermal Performance</h2>
+        <p class="section-subtitle">Our proprietary nanomaterials are engineered to deliver precise thermodynamic control without sacrificing architectural aesthetics. Experience maximum efficiency with a zero-compromise optical profile.</p>
+
+        <div class="grid-4">
+            <div class="feature-card">
+                <div class="feature-icon">🌡️</div>
+                <h3>Maximized Solar Rejection</h3>
+                <p>Functions as an advanced thermal barrier, actively blocking up to 50% of total solar radiation and neutralizing intense Near-Infrared (NIR) heat. Radically reduces HVAC loads in commercial and automotive applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <h3>Flawless Optical Clarity</h3>
+                <p>Engineered for high visible light transmittance (VLT). The spectrally-selective nanoparticles filter heat while allowing natural light to pass through seamlessly, maintaining the pristine aesthetic of clear architectural glass.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕶️</div>
+                <h3>Advanced Anti-Glare</h3>
+                <p>Integrated light-scattering mitigation actively reduces harsh solar glare. Improves occupant visual comfort and screen visibility in high-exposure office environments and automotive cabins.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏳</div>
+                <h3>Extended Lifespan</h3>
+                <p>Built with a hyper-stabilized protective matrix that prevents oxidative degradation and color-fading. Delivers a substantially longer operational lifetime compared to traditional dyed or metallic solar films, even in ultra-high humidity microclimates.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech">
+        <div class="tech-container">
+            <h3>The QuantaNueva Advantage</h3>
+            <ul class="tech-list">
+                <li><strong>Unprecedented Durability:</strong> Proprietary molecular cross-linking neutralizes degradation, ensuring decades of thermal performance.</li>
+                <li><strong>RF Transparent:</strong> 100% non-conductive dielectric composition ensures zero interference with 5G, Wi-Fi, and GPS signals.</li>
+                <li><strong>Superior Unit Economics:</strong> Unmatched material efficacy exponentially reduces required application density, scaling margins for global distribution partners.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Deploy QuantaNueva</h2>
+        <p>Partner with our engineering team for commercial real estate, automotive integrations, or global supply chain distribution.</p>
+
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company / Organization</label>
+                    <input type="text" id="company" name="company" required placeholder="Acme Real Estate">
+                </div>
+                <div class="form-group">
+                    <label for="email">Work Email</label>
+                    <input type="email" id="email" name="email" required placeholder="jane@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="project">Deployment Region / Industry</label>
+                    <input type="text" id="project" name="project" placeholder="e.g., North America Commercial Real Estate">
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Requirements</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Detail your technical requirements or distribution capabilities here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="c26cacd7-30be-4f6e-8a4e-3eb1217b2311-1.jpg" alt="QuantaNueva Logo" class="footer-logo">
+        <p>&copy; 2026 QuantaNueva Limited. All rights reserved.</p>
+        <p>Advanced Materials for a Cooler World | Global Operations</p>
+    </footer>
+
+</body>
+</html>
